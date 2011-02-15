@@ -1,0 +1,29 @@
+<h2>Veterinarians:</h2>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Specialties</th>
+  </thead>
+  <% @vets.each do |vet| -%>
+    <tr>
+      <td><%= vet.first_name %> <%= vet.last_name %></td>
+      <td>
+        <% vet.specialties.each do |specialty| -%>
+          <%= specialty.name %>
+        <% end -%>
+        <% if vet.nr_of_specialties == 0 -%>none<% end -%>
+      </td>
+    </tr>
+  <% end -%>
+</table>
+<table class="table-buttons">
+  <tr>
+    <td>
+      <%= link_to "View as XML", vets_path(:format => :xml) %>
+    </td>
+    <td>
+      <%= link_to "View as JSON", vets_path(:format => :json) %>
+    </td>
+  </tr>
+</table>
