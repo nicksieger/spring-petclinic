@@ -8,7 +8,12 @@ Petclinic][pc] application.
 
 
 ## Getting started
-First build the legacy petstore and download all Java dependencies using maven
+First create the database
+
+    $ mysql -u root
+    > create database petclinic;
+
+Then build the legacy petstore and download all Java dependencies using maven
 
     $ mvn package
 
@@ -22,7 +27,7 @@ However the jruby-rake maven plugin used needs to be built from source it's not 
     $ rails server
 
 ## Integration tests with cucumber
-There are basic smoke tests in the features folder. Run them with
+There are some basic smoke tests in the features folder. Run them with
 
     $ rake cucumber
 
