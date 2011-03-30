@@ -13,6 +13,7 @@ class Vet
       "nr_of_specialties" => nr_of_specialties
     }
   end
+  alias attributes serializable_hash
 
   def self.all
     clinic.getVets
