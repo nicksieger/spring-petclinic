@@ -1,0 +1,7 @@
+<h2>Pet</h2>
+
+<%= render :partial => "form" %>
+
+<%= form_for [@owner, @pet], :html => {:method => 'delete'} do |f| %>
+  <p class="submit"><%= f.submit "Delete Pet", :confirm => "Are you sure?" %></p>
+<% end -%>

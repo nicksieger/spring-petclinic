@@ -6,7 +6,9 @@ SpringPetclinic::Application.routes.draw do
     collection do
       get :search
     end
-    resources :pets
+    resources :pets do
+      resources :visits
+    end
   end
 
   resources :vets do
