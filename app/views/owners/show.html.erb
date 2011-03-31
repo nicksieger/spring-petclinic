@@ -32,27 +32,24 @@
   </tr>
 </table>
 
-
-
-<%# 
 <h2>Pets and Visits</h2>
 
-<c:forEach var="pet" items="${owner.pets}">
+<% @owner.pets.each do |pet| -%>
   <table width="94%">
     <tr>
       <td valign="top">
         <table>
           <tr>
             <th>Name</th>
-            <td><b>${pet.name}</b></td>
+            <td><b><%= pet.name %></b></td>
           </tr>
           <tr>
             <th>Birth Date</th>
-            <td><fmt:formatDate value="${pet.birthDate}" pattern="yyyy-MM-dd"/></td>
+            <td><%= pet.birth_date.to_s %></td>
           </tr>
           <tr>
             <th>Type</th>
-            <td>${pet.type.name}</td>
+            <td><%= pet.type.name %></td>
           </tr>
         </table>
       </td>
@@ -62,12 +59,12 @@
             <th>Visit Date</th>
             <th>Description</th>
           </thead>
-          <c:forEach var="visit" items="${pet.visits}">
+          <% pet.visits.each do |visit| -%>
             <tr>
-              <td><fmt:formatDate value="${visit.date}" pattern="yyyy-MM-dd"/></td>
-              <td>${visit.description}</td>
+              <td><%= visit.date.to_s %></td>
+              <td><%= visit.description %></td>
             </tr>
-          </c:forEach>
+          <% end -%>
         </table>
       </td>
     </tr>
@@ -75,29 +72,16 @@
   <table class="table-buttons">
     <tr>
       <td>
-        <spring:url value="{ownerId}/pets/{petId}/edit" var="petUrl">
-          <spring:param name="ownerId" value="${owner.id}"/>
-          <spring:param name="petId" value="${pet.id}"/>
-        </spring:url>
-        <a href="${fn:escapeXml(petUrl)}">Edit Pet</a>
+        <%= link_to 'Edit Pet', edit_owner_pet_path(@owner, pet) %>
       </td>
       <td></td>
       <td>
-        <spring:url value="{ownerId}/pets/{petId}/visits/new" var="visitUrl">
-          <spring:param name="ownerId" value="${owner.id}"/>
-          <spring:param name="petId" value="${pet.id}"/>
-        </spring:url>
-        <a href="${fn:escapeXml(visitUrl)}">Add Visit</a>
+        <%= link_to 'Add Visit', new_owner_pet_visit_path(@owner, pet) %>
       </td>
       <td></td>
       <td>
-        <spring:url value="{ownerId}/pets/{petId}/visits.atom" var="feedUrl">
-          <spring:param name="ownerId" value="${owner.id}"/>
-          <spring:param name="petId" value="${pet.id}"/>
-        </spring:url>
-        <a href="${fn:escapeXml(feedUrl)}" rel="alternate" type="application/atom+xml">Atom Feed</a>
+        <%= link_to 'Atom Feed', owner_pet_visits_path(@owner, pet, 'atom') %>
       </td>
     </tr>
   </table>
-</c:forEach>
--%>
+<% end -%>
