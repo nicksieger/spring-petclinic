@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_filter :load_owner, :except => [:destroy]
+  before_filter :load_owner
   before_filter :new_pet, :only => [:new, :create]
   before_filter :load_pet, :only => [:show, :edit, :update, :destroy]
 
