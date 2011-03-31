@@ -13,16 +13,11 @@ class Pet
   end
 
   def birth_date=(date)
-    p date
     setBirthDate java.util.Date.from_date(date)
   end
 
-  # def type
-  #   getType.id
-  # end
-
   def type=(t)
-    setType PetType.load(t)
+    setType PetType === t ? t : PetType.load(t.to_i)
   end
 
   def self.load(id)
