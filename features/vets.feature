@@ -6,7 +6,7 @@ Feature: Vets
     Then I should see an XML document
     And I should see a vet element for "Carter"
 
-  @json
+  @extended
   Scenario: View vets as JSON
     Given I am on the vets page
     When I download "View as JSON"

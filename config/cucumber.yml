@@ -2,7 +2,7 @@
 rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
 rerun_opts = rerun.to_s.strip.empty? ? "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
 tags = "~@wip"
-tags += ",@json" unless ENV['TESTHOST']
+tags += " --tags ~@extended" if ENV['TESTHOST']
 std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} --strict --color --tags #{tags}"
 %>
 default: <%= std_opts %> features
