@@ -20,6 +20,12 @@ module NavigationHelpers
     when /the vets page/
       '/vets'
 
+    when /the owners search page/
+      '/owners/search'
+
+    when /the new owner page/
+      '/owners/new'
+
     when %r{^/[^ ]+}
       page_name
 
