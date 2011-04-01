@@ -12,14 +12,14 @@
       <th>
         First Name: <form:errors path="firstName" cssClass="errors"/>
         <br/>
-        <form:input path="firstName" size="30" maxlength="80"/>
+        <form:input id="first_name" path="firstName" size="30" maxlength="80"/>
       </th>
     </tr>
     <tr>
       <th>
         Last Name: <form:errors path="lastName" cssClass="errors"/>
         <br/>
-        <form:input path="lastName" size="30" maxlength="80"/>
+        <form:input id="last_name" path="lastName" size="30" maxlength="80"/>
       </th>
     </tr>
     <tr>
