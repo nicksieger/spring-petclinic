@@ -15,11 +15,11 @@ Feature: Owners
   Scenario: Add New Owner
     Given I am on the new owner page
     When I fill in the following:
-      | first_name | Dan         |
-      | last_name  | Wood        |
-      | address    | 123 Main St |
-      | city       | Anywhere    |
-      | telephone  | 5555555     |
+      | First name | Dan         |
+      | Last name  | Wood        |
+      | Address    | 123 Main St |
+      | City       | Anywhere    |
+      | Telephone  | 5555555     |
    And I press "Add Owner"
    Then I should see "Owner Information" within "h2"
    And I should see "Dan Wood"
