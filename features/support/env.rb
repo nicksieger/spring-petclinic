@@ -4,7 +4,7 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-if ENV["TESTHOST"]             # Standalone Cucumber/Capybara/Celerity
+if ENV["TESTURL"]             # Standalone Cucumber/Capybara/Celerity
   # Hat tip to http://stackoverflow.com/questions/3164593/is-it-possible-to-test-java-application-with-capybara/3607791#3607791
   require 'capybara'
   require 'capybara/cucumber'
@@ -18,7 +18,7 @@ if ENV["TESTHOST"]             # Standalone Cucumber/Capybara/Celerity
   Capybara.default_driver = :celerity
   Capybara.use_default_driver
   Capybara.run_server = false
-  Capybara.app_host = ENV["TESTHOST"]
+  Capybara.app_host = ENV["TESTURL"]
 else
   ENV["RAILS_ENV"] ||= "test"
   require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
