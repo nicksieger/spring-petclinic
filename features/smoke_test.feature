@@ -13,7 +13,7 @@ Feature: Browsing around
   Scenario: Owners
     Given I am on the home page
     And I follow "Find owner"
-    Then I should see "Last Name"
+    Then I should see "Last name"
     When I fill in "lastName" with "Franklin"
     And I press "Find Owners"
     Then I should see "George"

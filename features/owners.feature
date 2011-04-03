@@ -33,3 +33,10 @@ Feature: Owners
     And press "Update Owner"
     Then I should see "Owner Information" within "h2"
     And I should see "Minneapolis"
+
+  Scenario: Search Owners
+    Given I am on the owners search page
+    When I fill in "name" with "Davis"
+    And press "Find Owners"
+    Then I should see "Betty Davis"
+    And I should see "Harold Davis"
