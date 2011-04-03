@@ -14,3 +14,12 @@ Feature: Pets
     And I should see "Lizzie"
     And I should see "lizard"
     
+  Scenario: Edit Pet
+    Given I am on the owners search page
+    And I press "Find Owners"
+    And I follow "George Franklin"
+    And I follow "Edit Pet"
+    When I fill in "Name" with "Leoni"
+    And press "Update Pet"
+    Then I should see "Leoni"
+    
