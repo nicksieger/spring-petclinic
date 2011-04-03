@@ -20,6 +20,16 @@ Feature: Owners
       | Address    | 123 Main St |
       | City       | Anywhere    |
       | Telephone  | 5555555     |
-   And I press "Add Owner"
-   Then I should see "Owner Information" within "h2"
-   And I should see "Dan Wood"
+    And I press "Add Owner"
+    Then I should see "Owner Information" within "h2"
+    And I should see "Dan Wood"
+
+  Scenario: Edit Owner
+    Given I am on the owners search page
+    And I press "Find Owners"
+    When I follow "George Franklin"
+    And follow "Edit Owner"
+    And fill in "City" with "Minneapolis"
+    And press "Update Owner"
+    Then I should see "Owner Information" within "h2"
+    And I should see "Minneapolis"
